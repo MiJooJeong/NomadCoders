@@ -124,17 +124,66 @@ document.body.append(title, subtitle)
 // includes
 const isEmail = email => email.includes("@");
 
-console.log(isEmail("hello@email.com"));
+// console.log(isEmail("hello@email.com"));
 
 // repeat
 const CC_LAST_NUMBER = "6060";
 
 const displayNumber = `${"*".repeat(12)}${CC_LAST_NUMBER}`;
 
-console.log(displayNumber);
+// console.log(displayNumber);
 
 // startsWith, endsWith
 const name = "Mr. Nicolas"
 
-console.log(name.startsWith("Mr"));
-console.log(name.endsWith("Nicolas"));
+// console.log(name.startsWith("Mr"));
+// console.log(name.endsWith("Nicolas"));
+
+
+// 4.0 Array.from() and Array.of()
+// Array.of() : create a new array from arguments
+const foods = Array.of("milk", "egg", "chocolate", "coffee")
+
+// console.log(foods)
+
+// Array.from() : create a new array from array-like object
+const buttons = document.getElementsByClassName("btn");
+
+const ar = Array.from(buttons);
+
+ar.forEach(button => {
+    button.addEventListener("click", () => console.log("I ve been clicked"));
+});
+
+
+// 4.1 Array.find() Array.findIndex() Array.fill()
+const friends_email = [
+    "nico@gmail.com",
+    "lynn@naver.com",
+    "dal@yahoo.com",
+    "mark@hotmail.com",
+    "flynn@corea.com"
+];
+
+const check = () => friends_email.findIndex(email => email.includes("@corea.com"));
+
+let target = check();
+
+if (target !== -1) {
+    console.log(target)
+
+    const username = friends_email[target].split("@")[0];
+
+    const email = "korea.com";
+
+    friends_email[target] = `${username}@${email}`;
+
+    target = check();
+
+    console.log(target);
+}
+
+friends_email.fill("*".repeat(5), 1, 3);
+
+console.log(friends_email);
+console.log(friends_email.includes("nico@gmail.com"));
