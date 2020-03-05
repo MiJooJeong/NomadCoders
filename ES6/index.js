@@ -133,7 +133,7 @@ const displayNumber = `${"*".repeat(12)}${CC_LAST_NUMBER}`;
 
 console.log(displayNumber);
 
-// startsWith
+// startsWith, endsWith
 const name = "Mr. Nicolas"
 
 console.log(name.startsWith("Mr"));
