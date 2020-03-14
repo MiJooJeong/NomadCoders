@@ -87,3 +87,23 @@ const f1 = new Promise((resolve, reject) => {
     .then(value => console.log(value))
     .catch(e => console.log(`${e}❌`))
     .finally(() => console.log("Im done"));
+
+
+// 8.7 Real world Promises
+fetch("https://google.com")
+    .then(response => console.log(response))
+    .catch(e => console.log(`❌ ${e}`))
+
+fetch("https://yts.mx/api/v2/list_movies.json")
+    .then(response => {
+        console.log(response);
+        return response.json();
+    })
+    .then(json => console.log(json))
+    .catch(e => console.log(`❌ ${e}`));
+
+    
+// API 제공 사이트 : https://jsonplaceholder.typicode.com/
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then(response => response.json())
+    .then(json => console.log(json));
