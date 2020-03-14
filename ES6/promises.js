@@ -60,3 +60,21 @@ const motherPromise = Promise.all([p1, p2, p3]);
 motherPromise
     .then(values => console.log(values))
     .catch(err => console.log(err));
+
+
+// 8.5 Promise.race
+const pr1 = new Promise(resolve => {
+    setTimeout(resolve, 10000, "First");
+});
+
+const pr2 = new Promise((resolve, reject) => {
+    setTimeout(reject, 5000, "I hate JS");
+});
+
+const pr3 = new Promise(resolve => {
+    setTimeout(resolve, 3000, "Third");
+});
+
+Promise.race([pr1, pr2, pr3])
+    .then(values => console.log(values))
+    .catch(err => console.log(err));
