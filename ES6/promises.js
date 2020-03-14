@@ -78,3 +78,12 @@ const pr3 = new Promise(resolve => {
 Promise.race([pr1, pr2, pr3])
     .then(values => console.log(values))
     .catch(err => console.log(err));
+
+
+// 8.6 .finally
+const f1 = new Promise((resolve, reject) => {
+    setTimeout(reject, 5000, "First");
+})
+    .then(value => console.log(value))
+    .catch(e => console.log(`${e}❌`))
+    .finally(() => console.log("Im done"));
